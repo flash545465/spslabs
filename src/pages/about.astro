@@ -1,0 +1,437 @@
+---
+import Layout from '../layouts/Layout.astro';
+import AnimatedBackground from '../components/AnimatedBackground.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import { 
+  Users, 
+  Target, 
+  Lightbulb, 
+  Award, 
+  ArrowRight, 
+  ExternalLink,
+  Mail,
+  Phone,
+  MapPin,
+  Instagram,
+  MessageCircle,
+  Github,
+  Linkedin
+} from 'lucide-react';
+
+const teamMembers = [
+  {
+    name: 'Sohard Pratap Singh',
+    role: 'CEO & Founder',
+    image: 'https://media.licdn.com/dms/image/v2/D5603AQFgJepnWPTx1w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1721517491379?e=1756339200&v=beta&t=0HFYYnq4ZmTCXeJKJZA1zbUlTz60MdKyQJLZTBGloqo',
+    portfolio: 'https://sohardpratapsingh.netlify.app/',
+    description: 'Visionary leader driving innovation in software development and AI solutions.'
+  },
+  {
+    name: 'Om Saxena',
+    role: 'Developer',
+    image: 'https://media.licdn.com/dms/image/v2/D4E03AQEKj0U42FABhg/profile-displayphoto-shrink_800_800/B4EZUUwzJhGwAc-/0/1739810094571?e=1756339200&v=beta&t=2cGEubXDOFx6HsHaCuU7LzU4m-thucNeFIJidUxCcR0',
+    linkedin: 'https://www.linkedin.com/in/om-saxena-5b8571321',
+    description: 'Skilled developer passionate about creating robust and scalable software solutions.'
+  },
+  {
+    name: 'Nakshatra Yadav',
+    role: 'Editor & Graphic Designer',
+    image: 'https://media.licdn.com/dms/image/v2/D4E03AQG15Rc0l-yQRA/profile-displayphoto-shrink_400_400/B4EZVF1j2FHMAg-/0/1740633428054?e=1752105600&v=beta&t=9TkvTyqesGT_EUpKZ6bZIVeiPgCnkR21OgNHaAxTkXk',
+    linkedin: 'https://www.linkedin.com/in/nakshatra-yadav-9377a534b/',
+    description: 'Creative designer crafting compelling visual experiences and brand identities.'
+  }
+];
+
+const values = [
+  {
+    icon: 'Target',
+    title: 'Innovation',
+    description: 'We constantly push the boundaries of technology to deliver cutting-edge solutions that drive business growth.'
+  },
+  {
+    icon: 'Users',
+    title: 'Collaboration',
+    description: 'We believe in the power of teamwork and work closely with our clients to achieve shared success.'
+  },
+  {
+    icon: 'Award',
+    title: 'Excellence',
+    description: 'We maintain the highest standards of quality in everything we do, from code to customer service.'
+  },
+  {
+    icon: 'Lightbulb',
+    title: 'Creativity',
+    description: 'We approach every challenge with fresh perspectives and creative solutions that make a difference.'
+  }
+];
+
+const stats = [
+  { number: '50+', label: 'Projects Completed' },
+  { number: '25+', label: 'Happy Clients' },
+  { number: '3+', label: 'Years Experience' },
+  { number: '7+', label: 'Products Developed' }
+];
+
+const socialLinks = [
+  {
+    name: 'Instagram',
+    icon: 'Instagram',
+    url: 'https://www.instagram.com/spslabs.in/',
+    color: 'hover:text-pink-500'
+  },
+  {
+    name: 'WhatsApp',
+    icon: 'MessageCircle',
+    url: 'https://wa.me/917906636345',
+    color: 'hover:text-green-500'
+  },
+  {
+    name: 'GitHub',
+    icon: 'Github',
+    url: 'https://github.com/spslabs2025',
+    color: 'hover:text-gray-700 dark:hover:text-gray-300'
+  }
+];
+---
+
+<Layout 
+  title="About SPSLabs.in - Our Story, Mission & Team"
+  description="Learn about SPSLabs.in's mission to transform businesses through innovative technology. Meet our expert team and discover our values, vision, and commitment to excellence."
+  keywords="about SPSLabs, software development team, company mission, technology innovation, digital transformation experts, Sohard Pratap Singh, Om Saxena, Nakshatra Yadav"
+>
+  <AnimatedBackground />
+  <Navbar />
+  
+  <main class="pt-16 min-h-screen relative">
+    <!-- Hero Section -->
+    <section class="py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            About <span class="bg-gradient-to-r from-blue-600 to-teal-600 bg-clip-text text-transparent">SPSLabs.in</span>
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">
+            Transforming Ideas into Digital Reality
+          </p>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed">
+            SPSLabs.in is a leading software development company dedicated to providing innovative solutions 
+            for modern businesses. Our mission is to empower organizations with cutting-edge technology 
+            and exceptional service, helping them thrive in the digital age.
+          </p>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+          {stats.map((stat, index) => (
+            <div class="text-center bg-white/60 dark:bg-gray-900/60 backdrop-blur-sm rounded-2xl p-6 shadow-lg border border-white/20 dark:border-gray-700/20">
+              <div class="text-3xl md:text-4xl font-bold text-blue-600 dark:text-blue-400 mb-2">
+                {stat.number}
+              </div>
+              <div class="text-gray-600 dark:text-gray-300 font-medium">
+                {stat.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Mission & Vision Section -->
+    <section class="py-20 bg-white/40 dark:bg-gray-900/40 backdrop-blur-sm relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-8">
+              Our Mission & Vision
+            </h2>
+            <div class="space-y-8">
+              <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Our Mission</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                  To empower businesses through innovative technology solutions that drive growth, 
+                  efficiency, and digital transformation while maintaining the highest standards of quality and service.
+                </p>
+              </div>
+              <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30">
+                <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">Our Vision</h3>
+                <p class="text-gray-600 dark:text-gray-300">
+                  To be the leading force in digital innovation, creating solutions that shape the future 
+                  of technology and help businesses worldwide achieve their full potential.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-6">
+            {values.map((value, index) => (
+              <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-6 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30 text-center hover:shadow-xl transition-all duration-300 hover:bg-white/90 dark:hover:bg-gray-900/90">
+                <div class="flex justify-center mb-4">
+                  <div class="p-3 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl">
+                    {value.icon === 'Target' && <Target class="h-6 w-6 text-white" />}
+                    {value.icon === 'Users' && <Users class="h-6 w-6 text-white" />}
+                    {value.icon === 'Award' && <Award class="h-6 w-6 text-white" />}
+                    {value.icon === 'Lightbulb' && <Lightbulb class="h-6 w-6 text-white" />}
+                  </div>
+                </div>
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-2">
+                  {value.title}
+                </h3>
+                <p class="text-sm text-gray-600 dark:text-gray-300">
+                  {value.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            Meet Our Team
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            Our talented team of professionals brings together diverse skills and expertise 
+            to deliver exceptional results for our clients.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {teamMembers.map((member, index) => (
+            <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-white/30 dark:border-gray-700/30 overflow-hidden">
+              <div class="aspect-square overflow-hidden">
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
+                />
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  {member.name}
+                </h3>
+                <p class="text-blue-600 dark:text-blue-400 font-medium mb-3">
+                  {member.role}
+                </p>
+                <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  {member.description}
+                </p>
+                <div class="flex space-x-3">
+                  {member.portfolio && (
+                    <a
+                      href={member.portfolio}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    >
+                      <ExternalLink class="h-4 w-4 mr-1" />
+                      Portfolio
+                    </a>
+                  )}
+                  {member.linkedin && (
+                    <a
+                      href={member.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="inline-flex items-center text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 transition-colors"
+                    >
+                      <Linkedin class="h-4 w-4 mr-1" />
+                      LinkedIn
+                    </a>
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Information Section -->
+    <section class="py-20 bg-gradient-to-r from-blue-600/90 to-teal-600/90 backdrop-blur-sm relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
+            Get In Touch
+          </h2>
+          <p class="text-xl text-white/90">
+            Ready to start your next project? We'd love to hear from you.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <!-- Contact Info -->
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-8 text-white border border-white/30">
+            <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+            <div class="space-y-4">
+              <div class="flex items-center">
+                <MapPin class="h-5 w-5 mr-3 text-white/80" />
+                <span>Noida, Uttar Pradesh, India</span>
+              </div>
+              <div class="flex items-center">
+                <Phone class="h-5 w-5 mr-3 text-white/80" />
+                <a href="tel:+917906636345" class="hover:text-white/80 transition-colors">+91 7906636345</a>
+              </div>
+              <div class="flex items-center">
+                <Mail class="h-5 w-5 mr-3 text-white/80" />
+                <a href="mailto:spslabs2025@gmail.com" class="hover:text-white/80 transition-colors">spslabs2025@gmail.com</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social Media -->
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-8 text-white border border-white/30">
+            <h3 class="text-xl font-semibold mb-6">Follow Us</h3>
+            <div class="space-y-4">
+              {socialLinks.map((social, index) => (
+                <a
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={`flex items-center ${social.color} transition-colors`}
+                >
+                  {social.icon === 'Instagram' && <Instagram class="h-5 w-5 mr-3" />}
+                  {social.icon === 'MessageCircle' && <MessageCircle class="h-5 w-5 mr-3" />}
+                  {social.icon === 'Github' && <Github class="h-5 w-5 mr-3" />}
+                  <span>{social.name}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="bg-white/20 backdrop-blur-md rounded-2xl p-8 text-white border border-white/30">
+            <h3 class="text-xl font-semibold mb-4">Ready to Start?</h3>
+            <p class="text-white/90 mb-6">
+              Let's discuss your project and bring your ideas to life.
+            </p>
+            <div class="space-y-3">
+              <a
+                href="/contact"
+                class="inline-flex items-center w-full justify-center px-6 py-3 bg-white text-blue-600 hover:bg-gray-100 font-medium rounded-xl transition-all duration-300"
+              >
+                Contact Us
+                <ArrowRight class="ml-2 h-4 w-4" />
+              </a>
+              <a
+                href="/services"
+                class="inline-flex items-center w-full justify-center px-6 py-3 border-2 border-white text-white hover:bg-white hover:text-blue-600 font-medium rounded-xl transition-all duration-300"
+              >
+                Our Services
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="py-20 relative">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-6">
+            Why Choose SPSLabs.in?
+          </h2>
+          <p class="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+            We combine technical expertise with creative innovation to deliver solutions that exceed expectations.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-900/90 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+              <Target class="h-6 w-6 text-white" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              Client-Focused Approach
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              We prioritize understanding your unique needs and delivering solutions that align perfectly with your business goals.
+            </p>
+          </div>
+
+          <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-900/90 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-xl flex items-center justify-center mb-4">
+              <Lightbulb class="h-6 w-6 text-white" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              Cutting-Edge Technology
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              We stay ahead of technology trends to provide you with the most advanced and efficient solutions available.
+            </p>
+          </div>
+
+          <div class="bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm p-8 rounded-2xl shadow-lg border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-900/90 transition-all duration-300">
+            <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-teal-500 rounded-xl flex items-center justify-center mb-4">
+              <Award class="h-6 w-6 text-white" />
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+              Proven Track Record
+            </h3>
+            <p class="text-gray-600 dark:text-gray-300">
+              Our portfolio of successful projects and satisfied clients speaks to our commitment to excellence and quality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "mainEntity": {
+    "@type": "Organization",
+    "name": "SPSLabs.in",
+    "url": "https://spslabs.in",
+    "logo": "https://spslabs.in/SPSLABS_LOGO_Light.png",
+    "description": "SPSLabs.in is a leading software development company dedicated to providing innovative solutions for modern businesses.",
+    "foundingDate": "2022",
+    "founders": [
+      {
+        "@type": "Person",
+        "name": "Sohard Pratap Singh",
+        "jobTitle": "CEO & Founder"
+      }
+    ],
+    "employee": [
+      {
+        "@type": "Person",
+        "name": "Sohard Pratap Singh",
+        "jobTitle": "CEO & Founder"
+      },
+      {
+        "@type": "Person", 
+        "name": "Om Saxena",
+        "jobTitle": "Developer"
+      },
+      {
+        "@type": "Person",
+        "name": "Nakshatra Yadav", 
+        "jobTitle": "Editor & Graphic Designer"
+      }
+    ],
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Noida",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "India"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+91-7906636345",
+      "contactType": "customer service",
+      "email": "spslabs2025@gmail.com"
+    }
+  }
+}
+</script>

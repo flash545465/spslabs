@@ -1,0 +1,277 @@
+---
+export interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
+  noindex?: boolean;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = "software development, AI automation, business digitalization, custom software, SPSLabs, web development, mobile apps, AI agents",
+  ogImage = "/SPSLABS_LOGO_Light.png",
+  canonicalURL = new URL(Astro.url.pathname, Astro.site),
+  noindex = false
+} = Astro.props;
+
+const fullTitle = title.includes('SPSLabs') ? title : `${title} | SPSLabs.in`;
+---
+
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/SPSLABS_LOGO_Light.png" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, Astro.site)} />
+    <meta property="og:site_name" content="SPSLabs.in" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={fullTitle} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL(ogImage, Astro.site)} />
+    
+    <!-- Additional SEO Meta Tags -->
+    <meta name="author" content="SPSLabs.in" />
+    <meta name="robots" content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="bingbot" content="index, follow" />
+    
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "SPSLabs.in",
+        "url": "https://spslabs.in",
+        "logo": "https://spslabs.in/SPSLABS_LOGO_Light.png",
+        "description": "SPSLabs provides innovative software solutions, AI automations, business digitalization, and custom development services for modern businesses.",
+        "foundingDate": "2022",
+        "founders": [
+          {
+            "@type": "Person",
+            "name": "Sohard Pratap Singh"
+          }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Noida",
+          "addressRegion": "Uttar Pradesh",
+          "addressCountry": "India"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+91-7906636345",
+          "contactType": "customer service",
+          "email": "spslabs2025@gmail.com"
+        },
+        "sameAs": [
+          "https://www.instagram.com/spslabs.in/",
+          "https://github.com/spslabs2025",
+          "https://wa.me/917906636345"
+        ],
+        "services": [
+          "AI Automations",
+          "Custom AI Agents", 
+          "Business Digitalization",
+          "Software Solutions",
+          "Website Development",
+          "College Project Development"
+        ]
+      }
+    </script>
+    
+    <title>{fullTitle}</title>
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="/SPSLABS_LOGO_Light.png" as="image" />
+    <link rel="preload" href="/SPS_LABS_LOGO_Dark.png" as="image" />
+    
+    <!-- DNS Prefetch for external domains -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//www.google-analytics.com" />
+  </head>
+  <body class="min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+    <slot />
+    
+    <!-- Schema markup for website -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "SPSLabs.in",
+        "url": "https://spslabs.in",
+        "description": "Innovative software solutions for modern businesses",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://spslabs.in/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  /* Enhanced animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes pulse-slow {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.8;
+    }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.6s ease-out forwards;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse-slow 3s ease-in-out infinite;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+  /* Dark mode scrollbar */
+  .dark ::-webkit-scrollbar-track {
+    background: #374151;
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background: #6b7280;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  /* Performance optimizations */
+  * {
+    box-sizing: border-box;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  /* Focus styles for accessibility */
+  button:focus,
+  a:focus,
+  input:focus,
+  textarea:focus,
+  select:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  /* Text selection */
+  ::selection {
+    background-color: #3b82f6;
+    color: white;
+  }
+
+  .dark ::selection {
+    background-color: #60a5fa;
+    color: #1f2937;
+  }
+</style>
